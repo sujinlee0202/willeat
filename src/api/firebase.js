@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "firebase/auth";
 import { getDatabase, ref, set, get } from "firebase/database";
+import { v4 as uuidv4 } from 'uuid'
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_API_KEY,
@@ -53,8 +54,21 @@ const adminUser = async (user) => {
     if(snapshot.exists()) {
       const admin = snapshot.val()
       const isAdmin = admin.includes(user.uid)
-      return {...user, isAdmin}
+      return {...user, isAdmin} 
     }
     return user
+  })
+}
+
+export const addNewPlace = (place, url) => {
+  const id = uuidv4()
+  return set(ref(database, `place/${id}`), {
+    ...place,
+    id: id,
+    imageUrl: url,
+    name: place.name,
+    category: place.category,
+    description: place.description,
+    tag: place.tag.split(',')
   })
 }
