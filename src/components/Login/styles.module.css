@@ -1,0 +1,30 @@
+.loginContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.googleUrl {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 100%;
+}
+
+.edit {
+  padding: 0.3rem;
+  border-radius: 4px;
+  background-color: orange;
+  cursor: pointer;
+}
+
+.button {
+  border: none;
+  background-color: orange;
+  padding: 0.3rem 0.6rem;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
