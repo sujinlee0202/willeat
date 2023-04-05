@@ -36,7 +36,7 @@ const EditModal = ({onClick, setOpenEditModal}) => {
     .then(res => res.data.items[0]) // mapx, mapy
     .then(item => {
       searchMap(item.mapx, item.mapy)
-      setPlace(place => ({...place, address: item.roadAddress}))
+      setPlace(place => ({...place, address: item.roadAddress, mapx: item.mapx, mapy: item.mapy}))
     })
   }
 

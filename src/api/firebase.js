@@ -72,3 +72,11 @@ export const addNewPlace = (place, url) => {
     tag: place.tag.split(',')
   })
 }
+
+export const getPlace = async () => {
+  return get(ref(database, 'place')).then((snapshot) => {
+    if(snapshot.exists()) {
+      return Object.values(snapshot.val())
+    }
+  })
+}

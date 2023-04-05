@@ -1,10 +1,13 @@
 import { convertGeo } from "./tmap";
 
-export const initMap = (x, y) => {
+const INITIAL_X = 37.511337
+const INITIAL_Y = 127.012084
+
+export const initMap = (lat, lon) => {
   let mapDiv = document.getElementById('map')
   const map = new naver.maps.Map(mapDiv, {
-    center: new naver.maps.LatLng(37.511337, 127.012084),
-    zoom: 13,
+    center: new naver.maps.LatLng(lat, lon),
+    zoom: 16,
   });
 }
 
