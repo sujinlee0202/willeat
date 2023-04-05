@@ -1,8 +1,5 @@
 import { convertGeo } from "./tmap";
 
-const INITIAL_X = 37.511337
-const INITIAL_Y = 127.012084
-
 export const initMap = (lat, lon) => {
   let mapDiv = document.getElementById('map')
   const map = new naver.maps.Map(mapDiv, {
@@ -12,8 +9,7 @@ export const initMap = (lat, lon) => {
 }
 
 export const searchMap = async (x, y) => {
-  let convertX = 0
-  let convertY = 0
+  let convertX = 0, convertY = 0
 
   await convertGeo(x, y)
   .then(res => Object.values(res.data)[0])
