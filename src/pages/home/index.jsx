@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react'
 import styles from './styles.module.css'
-import { initMap, searchMap } from '../../api/naver_map'
+import { initMap } from '../../api/naver_map'
 import SideBar from '../../components/SideBar'
 import Login from '../../components/Login'
-import { getPlace } from '../../api/firebase'
-import { useQuery } from '@tanstack/react-query'
 
 const Home = () => {
+  // 첫 시작 시 현재 위치를 기준으로 naver map 로드
   useEffect(() => {
     const success = (pos) => {
       let crd = pos.coords
