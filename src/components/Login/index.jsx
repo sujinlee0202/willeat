@@ -17,12 +17,11 @@ const Login = () => {
     logout().then(user => setUser(user))
   }
 
-  const onClickEditModal = (e) => {
+  const onClickEditModal = () => {
     setOpenEditModal(true)
   }
 
-  const onClickEditModalBack = (e) => {
-    e.stopPropagation()
+  const onClickEditModalBack = () => {
     setOpenEditModal(false)
   }
 
