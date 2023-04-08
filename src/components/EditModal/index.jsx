@@ -12,7 +12,6 @@ const EditModal = ({onClick, setOpenEditModal}) => {
   const [imageUrl, setImageUrl] = useState()
   const [openMap, setOpenMap] = useState(false)
 
-  // input에 내용 입력 시 setPlace에 내용 저장
   const onChangeInput = (e) => {
     const {id, value, files} = e.target
 
@@ -29,23 +28,18 @@ const EditModal = ({onClick, setOpenEditModal}) => {
     setPlace(place => ({...place, [id]: value}))
   }
 
-  // 1. place 이름 검색
-  // 2. naver search api를 통해 place 정보 확인
-  // 3. naver map api를 통해 place 위치 확인
-  // 4. place 정보를 firebase에 저장
   const onClickSearch = (e) => {
     e.preventDefault()
     setOpenMap(true)
 
     searchNaver(place.name)
-    .then(res => res.data.items[0])
+    .then(res => res.data.items[0]) // mapx, mapy
     .then(item => {
       searchMap(item.mapx, item.mapy)
       setPlace(place => ({...place, address: item.roadAddress, mapx: item.mapx, mapy: item.mapy}))
     })
   }
 
-  // place state를 firebase에 저장
   const handleSubmit = (e) => {
     e.preventDefault()
     setIsUploading(true)
