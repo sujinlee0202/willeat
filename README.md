@@ -9,6 +9,7 @@
 - React-icons, uuid
 ## 실행 방법
 ```
+npm install
 npm run start
 ```
 ## 파일 구조

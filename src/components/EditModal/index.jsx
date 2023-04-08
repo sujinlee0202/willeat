@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import styles from './styles.module.css'
 import { uploadImage } from '../../api/cloudinary'
 import { addNewPlace } from '../../api/firebase'
-import { searchNaver } from '../../api/fetchNaverPlace'
-import { searchMap } from '../../api/fetchNaverMap'
+import { searchNaver } from '../../api/naver_search_place'
+import { searchMap } from '../../api/naver_map'
 
 const EditModal = ({onClick, setOpenEditModal}) => {
   const [file, setFile] = useState()
