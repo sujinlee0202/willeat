@@ -1,0 +1,110 @@
+.modalContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 50%;
+  min-width: 260px;
+  max-width: 800px;
+  min-height: 600px;
+  transform: translate(-50%, -50%);
+  background-color: var(--color-white);
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: inset 2px 2px 0.2rem rgba(0, 0, 0, 0.5), inset -2px -2px 0.2rem rgba(0, 0, 0, 0.5);
+  z-index: 200;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.searchForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  gap: 0.8rem;
+}
+
+.inputContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  gap: 0.8rem;
+}
+
+.input{
+  border: 1px solid gray;
+  padding: 0.4rem;
+  width: 60%;
+}
+
+.btnSearch {
+  box-sizing: border-box;
+  padding: 0.4rem 0.6rem;
+  background-color: orange;
+  color: var(--color-white);
+  font-weight: bold;
+}
+
+.btnSearch:hover {
+  background-color: orangered;
+}
+
+.btnUpload {
+  width: 80%;
+  box-sizing: border-box;
+  padding: 0.4rem 0.6rem;
+  background-color: orange;
+  color: var(--color-white);
+  font-weight: bold;
+}
+
+.btnUpload:hover {
+  background-color: orangered;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+}
+
+.formContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.fileButton {
+  cursor: pointer;
+  width: 80%;
+  height: 50%;
+  min-height: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dotted orange;
+  color: orange;
+  margin: 0 auto;
+}
+
+.image {
+  cursor: pointer;
+  width: 80%;
+  height: 50%;
+  min-height: 8rem;
+  border: 2px dotted orange;
+}
+
+.inputFile {
+  display: none
+}
+
+.inputName {
+  display: none;
+}
