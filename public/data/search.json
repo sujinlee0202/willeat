@@ -1,0 +1,63 @@
+{
+  "lastBuildDate": "Tue, 04 Apr 2023 19:50:49 +0900",
+  "total": 5,
+  "start": 1,
+  "display": 5,
+  "items": [
+      {
+          "title": "<b>얼땅쟈</b>",
+          "link": "",
+          "category": "중식>중식당",
+          "description": "",
+          "telephone": "",
+          "address": "서울특별시 광진구 자양동 11-3",
+          "roadAddress": "서울특별시 광진구 동일로18길 68",
+          "mapx": "317698",
+          "mapy": "548927"
+      },
+      {
+          "title": "<b>얼땅쟈</b> 경희대1호점",
+          "link": "",
+          "category": "중식>중식당",
+          "description": "",
+          "telephone": "",
+          "address": "서울특별시 동대문구 회기동 42-45 2층",
+          "roadAddress": "서울특별시 동대문구 경희대로1길 8-7 2층",
+          "mapx": "316455",
+          "mapy": "554838"
+      },
+      {
+          "title": "<b>얼땅쟈</b> 별관",
+          "link": "",
+          "category": "음식점>중식>중식당",
+          "description": "",
+          "telephone": "",
+          "address": "서울특별시 광진구 자양동 9-10 1층",
+          "roadAddress": "서울특별시 광진구 동일로18길 67 1층",
+          "mapx": "317702",
+          "mapy": "548951"
+      },
+      {
+          "title": "<b>얼땅쟈</b> 대림역2호점",
+          "link": "",
+          "category": "중식>중식당",
+          "description": "",
+          "telephone": "",
+          "address": "서울특별시 영등포구 대림동 710-14 2층",
+          "roadAddress": "서울특별시 영등포구 도림로 153 2층",
+          "mapx": "302802",
+          "mapy": "544139"
+      },
+      {
+          "title": "<b>얼땅쟈</b>꼬챙이훠궈",
+          "link": "https://blog.naver.com/huangshunxia_6503",
+          "category": "중식>중식당",
+          "description": "",
+          "telephone": "",
+          "address": "경기도 김포시 사우동 1000 1층 얼땅쟈소고기꼬챙이훠궈",
+          "roadAddress": "경기도 김포시 돌문로 68-1 1층 얼땅쟈소고기꼬챙이훠궈",
+          "mapx": "286842",
+          "mapy": "558362"
+      }
+  ]
+}

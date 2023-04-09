@@ -4,6 +4,7 @@ import { uploadImage } from '../../api/cloudinary'
 import { addNewPlace } from '../../api/firebase'
 import { searchNaver } from '../../api/naver_search_place'
 import { searchMap } from '../../api/naver_map'
+import { convertGeo } from '../../api/tmap'
 
 const EditModal = ({onClick, setOpenEditModal}) => {
   const [file, setFile] = useState()
@@ -36,12 +37,20 @@ const EditModal = ({onClick, setOpenEditModal}) => {
   const onClickSearch = (e) => {
     e.preventDefault()
     setOpenMap(true)
+    let convertX = 0, convertY = 0
 
     searchNaver(place.name)
     .then(res => res.data.items[0])
-    .then(item => {
+    .then(async item => {
       searchMap(item.mapx, item.mapy)
-      setPlace(place => ({...place, address: item.roadAddress, mapx: item.mapx, mapy: item.mapy}))
+      await convertGeo(item.mapx, item.mapy)
+      .then(res => Object.values(res.data)[0])
+      .then(coord => {
+        convertX = coord.lat
+        convertY = coord.lon
+        return convertX, convertY
+      })
+      setPlace(place => ({...place, address: item.roadAddress, mapx: convertX, mapy: convertY}))
     })
   }
 

@@ -6,11 +6,11 @@
 - Tmap Open API
 - HTML, JavaScript
 - React, PostCSS, React Router, React Query, Axios
-- React-icons, uuid
+- React-icons, uuid, react-custom-scrollbars-2
 ## 실행 방법
 ```
 npm install
-npm run start
+npm run dev
 ```
 ## 파일 구조
 ```

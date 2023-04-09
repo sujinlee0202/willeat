@@ -1,0 +1,9 @@
+.list {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 1.6rem;
+}
+
+.placeImg {
+  width: 100%;
+}
