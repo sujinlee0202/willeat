@@ -17,14 +17,15 @@ npm run dev
 ├─ public  
 ├─ src   
 │  ├─ api   
-│  │  │─ cloudinary.js   
-│  │  │─ fetchNaverMap.js   
-│  │  │─ fetchNaverPlace.js   
-│  │  │─ firebase.js  
+│  │  ├─ cloudinary.js   
+│  │  ├─ fetchNaverMap.js   
+│  │  ├─ fetchNaverPlace.js   
+│  │  ├─ firebase.js  
 │  │  └─ tmap.js  
 │  ├─ components  
-│  │  └─ EditModal   
-│  │  └─ Login  
+│  │  ├─ EditModal   
+│  │  ├─ Login  
+│  │  ├─ PlaceCard
 │  │  └─ Sidebar  
 │  ├─ context  
 │  │  └─ loginContext.jsx  
@@ -48,6 +49,8 @@ npm run dev
 ### src/components
 - EditModal : 맛집 추가 모달
 - Login : Google Login / Logout 기능
+- SideBar : 내 주변 맛집들이 표시되는 컴포넌트
+- PlaceCard : 사이드바에 표시되는 맛집 카드
 ### src/context
 - loginContext : login 상태를 앱 전반에 사용하기 위한 context
 ### src/pages

@@ -88,14 +88,14 @@ const EditModal = ({onClick, setOpenEditModal}) => {
         onSubmit={handleSubmit} 
         className={styles.formContainer}
       >
-        <div className={styles.fileButton}>
+        <div className={styles.inputBox}>
           {openMap 
             ? <div id='searchMap' className={styles.map}></div> 
             :'위치'}
         </div>
         {imageUrl 
           ? <img src={imageUrl} htmlFor='file' alt={place.name} className={styles.image} />
-          : <label htmlFor='file' className={styles.fileButton}>파일 업로드</label>}
+          : <label htmlFor='file' className={styles.inputBox}>파일 업로드</label>}
         <input 
           type='file' 
           id='file' 
@@ -112,7 +112,7 @@ const EditModal = ({onClick, setOpenEditModal}) => {
           required
         />
         <div className={styles.inputContainer}>
-          <label>카테고리 :</label>
+          <label className={styles.labelText}>카테고리 :</label>
           <input 
             type='text' 
             id='category' 
@@ -124,7 +124,7 @@ const EditModal = ({onClick, setOpenEditModal}) => {
           />
         </div>
         <div className={styles.inputContainer}>
-          <label>소개글 :</label>
+          <label className={styles.labelText}>소개글 :</label>
           <input 
             type='text' 
             id='description' 
@@ -136,7 +136,7 @@ const EditModal = ({onClick, setOpenEditModal}) => {
           />
         </div>
         <div className={styles.inputContainer}>
-          <label>태그 :</label>
+          <label className={styles.labelText}>태그 :</label>
           <input 
             type='text'
            id='tag' 
