@@ -2,6 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "firebase/auth";
 import { getDatabase, ref, set, get } from "firebase/database";
 import { v4 as uuidv4 } from 'uuid'
+import { convertGeo } from "./tmap";
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_API_KEY,
@@ -73,10 +74,8 @@ export const addNewPlace = (place, url) => {
   })
 }
 
-export const getPlace = async () => {
+export const getPlace = async (search) => {
   return get(ref(database, 'place')).then((snapshot) => {
-    if(snapshot.exists()) {
-      return Object.values(snapshot.val())
-    }
+    return Object.values(snapshot.val())
   })
 }

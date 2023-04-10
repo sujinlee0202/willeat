@@ -4,6 +4,7 @@ import { uploadImage } from '../../api/cloudinary'
 import { addNewPlace } from '../../api/firebase'
 import { searchNaver } from '../../api/naver_search_place'
 import { searchMap } from '../../api/naver_map'
+import { convertGeo } from '../../api/tmap'
 
 const EditModal = ({onClick, setOpenEditModal}) => {
   const [file, setFile] = useState()
@@ -36,12 +37,20 @@ const EditModal = ({onClick, setOpenEditModal}) => {
   const onClickSearch = (e) => {
     e.preventDefault()
     setOpenMap(true)
+    let convertX = 0, convertY = 0
 
     searchNaver(place.name)
     .then(res => res.data.items[0])
-    .then(item => {
+    .then(async item => {
       searchMap(item.mapx, item.mapy)
-      setPlace(place => ({...place, address: item.roadAddress, mapx: item.mapx, mapy: item.mapy}))
+      await convertGeo(item.mapx, item.mapy)
+      .then(res => Object.values(res.data)[0])
+      .then(coord => {
+        convertX = coord.lat
+        convertY = coord.lon
+        return convertX, convertY
+      })
+      setPlace(place => ({...place, address: item.roadAddress, mapx: convertX, mapy: convertY}))
     })
   }
 
@@ -79,14 +88,14 @@ const EditModal = ({onClick, setOpenEditModal}) => {
         onSubmit={handleSubmit} 
         className={styles.formContainer}
       >
-        <div className={styles.fileButton}>
+        <div className={styles.inputBox}>
           {openMap 
             ? <div id='searchMap' className={styles.map}></div> 
             :'위치'}
         </div>
         {imageUrl 
           ? <img src={imageUrl} htmlFor='file' alt={place.name} className={styles.image} />
-          : <label htmlFor='file' className={styles.fileButton}>파일 업로드</label>}
+          : <label htmlFor='file' className={styles.inputBox}>파일 업로드</label>}
         <input 
           type='file' 
           id='file' 
@@ -103,7 +112,7 @@ const EditModal = ({onClick, setOpenEditModal}) => {
           required
         />
         <div className={styles.inputContainer}>
-          <label>카테고리 :</label>
+          <label className={styles.labelText}>카테고리 :</label>
           <input 
             type='text' 
             id='category' 
@@ -115,7 +124,7 @@ const EditModal = ({onClick, setOpenEditModal}) => {
           />
         </div>
         <div className={styles.inputContainer}>
-          <label>소개글 :</label>
+          <label className={styles.labelText}>소개글 :</label>
           <input 
             type='text' 
             id='description' 
@@ -127,7 +136,7 @@ const EditModal = ({onClick, setOpenEditModal}) => {
           />
         </div>
         <div className={styles.inputContainer}>
-          <label>태그 :</label>
+          <label className={styles.labelText}>태그 :</label>
           <input 
             type='text'
            id='tag' 

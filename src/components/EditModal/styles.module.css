@@ -5,7 +5,7 @@
   width: 50%;
   height: 50%;
   min-width: 260px;
-  max-width: 800px;
+  max-width: 400px;
   min-height: 600px;
   transform: translate(-50%, -50%);
   background-color: var(--color-white);
@@ -25,6 +25,10 @@
   justify-content: center;
   width: 80%;
   gap: 0.8rem;
+}
+
+.labelText {
+  flex-shrink: 0;
 }
 
 .inputContainer {
@@ -47,6 +51,7 @@
   background-color: orange;
   color: var(--color-white);
   font-weight: bold;
+  flex-shrink: 0;
 }
 
 .btnSearch:hover {
@@ -73,14 +78,14 @@
 
 .formContainer {
   width: 100%;
-  height: 100%;
+  height: 560px;
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
   align-items: center;
 }
 
-.fileButton {
+.inputBox {
   cursor: pointer;
   width: 80%;
   height: 50%;
