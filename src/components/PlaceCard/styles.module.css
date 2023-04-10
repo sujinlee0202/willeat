@@ -1,4 +1,7 @@
 .list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
   box-sizing: border-box;
   width: 100%;
   padding: 0 1.6rem;
@@ -6,4 +9,30 @@
 
 .placeImg {
   width: 100%;
+  height: 200px;
+}
+
+.titleContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 8px 0;
+}
+
+.name {
+  font-weight: bold;
+  font-size: large;
+  color: darkblue;
+}
+
+.category {
+  color: gray;
+}
+
+.description, .address {
+  display: inline-block;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

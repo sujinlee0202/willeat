@@ -7,12 +7,12 @@ const PlaceCard = ({place}) => {
   return (
     <li className={styles.list}>
       <img src={imageUrl} alt={name} className={styles.placeImg}></img>
-      <div>
-        <p>{name}</p>
-        <p>{category}</p>
+      <div className={styles.titleContainer}>
+        <p className={styles.name}>{name}</p>
+        <p className={styles.category}>{category}</p>
       </div>
-      <p>{description}</p>
-      <p>{address}</p>
+      <p className={styles.description}>{description}</p>
+      <p className={styles.address}>{address}</p>
     </li>
   )
 }

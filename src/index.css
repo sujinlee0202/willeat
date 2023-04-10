@@ -29,6 +29,12 @@ input {
   outline: none;
 }
 
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none; /* Chrome, Safari, Opera */
+  margin: 0; /* Some margin to ensure elements do not collapse */
+}
+
 ul {
   list-style: none;
   padding: 0;
