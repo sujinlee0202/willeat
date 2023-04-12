@@ -12,6 +12,11 @@
 - 사이드바에 현재 위치 기준의 맛집 리스트 표시
 - 맛집 카드 클릭 시 맛집 위치 표시
 
+## 배포 URL (with Netlify)
+```
+https://magnificent-pudding-da63ef.netlify.app
+```
+
 ## 사용 기술
 - Naver Open API (Map, Search)
 - Tmap Open API (Convert Coord)
