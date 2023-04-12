@@ -11,6 +11,8 @@ export const initMap = (lat, lon) => {
 export const searchMap = async (x, y) => {
   let convertX = 0, convertY = 0
 
+  console.log('x, y', x, y)
+
   await convertGeo(x, y)
   .then(res => Object.values(res.data)[0])
   .then(coord => {
@@ -26,6 +28,18 @@ export const searchMap = async (x, y) => {
   });
   const marker = new naver.maps.Marker({
     position: new naver.maps.LatLng(convertX, convertY),
+    map: map
+  })
+}
+
+export const clickPlaceMap = async (x, y) => {
+  let mapDiv = document.getElementById('clickMap')
+  const map = new naver.maps.Map(mapDiv, {
+    center: new naver.maps.LatLng(x, y),
+    zoom: 18,
+  });
+  const marker = new naver.maps.Marker({
+    position: new naver.maps.LatLng(x, y),
     map: map
   })
 }

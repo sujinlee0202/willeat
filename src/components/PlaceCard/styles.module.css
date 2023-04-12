@@ -5,6 +5,7 @@
   box-sizing: border-box;
   width: 100%;
   padding: 0 1.6rem;
+  cursor: pointer;
 }
 
 .placeImg {
