@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import styles from './styles.module.css'
 import { BsSearch } from 'react-icons/bs'
 import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai'
@@ -6,15 +6,18 @@ import { useQuery } from '@tanstack/react-query'
 import { getPlace } from '../../api/firebase'
 import PlaceCard from '../PlaceCard'
 import Scrollbars from 'react-custom-scrollbars-2'
+import { Link } from 'react-router-dom'
+import { searchPageContext } from '../../context/searchPageContext'
 
 const SideBar = ({position}) => {
   const [close, setClose] = useState(false)
   const [range, setRange] = useState(1)
-  const [calRange, setCalRange] = useState(0.001)
+  const [calRange, setCalRange] = useState(0.01)
   const {data: places, isLoading, error} = useQuery(['place'], getPlace, {
     staleTime: 1000 * 60
   })
   const scrollRef = useRef(null)
+  const {showSearchPlace, onClickSearchCard} = useContext(searchPageContext)
 
   const onClickCloseButton = () => setClose(prev => !prev)
 
@@ -40,7 +43,9 @@ const SideBar = ({position}) => {
   return (
     <>
       <nav className={`${styles.sidebar} ${close && styles.close}`}>
-        <h2 className={styles.title}>WillEat</h2>
+        <Link to='/'>
+          <h2 className={styles.title}>WillEat</h2>
+        </Link>
         <Scrollbars ref={scrollRef}>
           <ul className={styles.lists}>
             {places && places.map(place => {
@@ -48,7 +53,7 @@ const SideBar = ({position}) => {
                 (position.x - calRange <= place.mapx && position.x + calRange >= place.mapx)
                 && (position.y - calRange <= place.mapy && position.y + calRange >= place.mapy)
               ) {
-                return <PlaceCard key={place.id} place={place} />
+                return <PlaceCard key={place.id} place={place} onClick={onClickSearchCard} />
               }
             })}
           </ul>
